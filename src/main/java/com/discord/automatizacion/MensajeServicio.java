@@ -2,6 +2,7 @@ package com.discord.automatizacion;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,7 +15,7 @@ public class MensajeServicio {
 
     private final MensajeRepo mensajeRepo;
     private final WebClient webClient;
-    private final String DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1339294033276702771/AaY-PLGXTo83P4-aYUznPKw_QKJdZSXhgx0YQ0M0f2qMdyOoRLD2JLc_mh8BVx-z4-De"; //Insertar URL de tu WebHook
+    private final String DISCORD_WEBHOOK_URL = ""; //Insertar URL de tu WebHook
 
 
     @Autowired
@@ -25,6 +26,7 @@ public class MensajeServicio {
 
     //Guarda mensajes
     public Mensaje guardaMensaje(MensajeDTO mensajeDTO) {
+        System.out.println("Mensaje de prueba:" + mensajeDTO);
         Mensaje mensaje = new Mensaje(mensajeDTO.getTexto(),
                 mensajeDTO.getFecha());
         return mensajeRepo.save(mensaje);
@@ -41,8 +43,9 @@ public class MensajeServicio {
     }
 
     //Envía mensajes programados
+    @Scheduled(fixedRate = 60000)
     public void enviarMensaje(){
-        List<Mensaje> mensajesPorEnviar = mensajeRepo.findByScheduledTimeBefore(LocalDateTime.now());
+        List<Mensaje> mensajesPorEnviar = mensajeRepo.findByFechaBefore(LocalDateTime.now());
         for(Mensaje mensaje : mensajesPorEnviar){
             enviarADiscord(mensaje);
             mensajeRepo.delete(mensaje);

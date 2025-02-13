@@ -13,7 +13,7 @@ public class ProgramadorDeMensajes {
         this.mensajeServicio = mensajeServicio;
     }
 
-    @Scheduled(fixedRate = 86400) //Se ejecuta cada 24 horas
+    @Scheduled(fixedRate = 60000) //Se ejecuta cada minuto
     public void  revisarYEnviarMensaje(){
         mensajeServicio.enviarMensaje();
     }

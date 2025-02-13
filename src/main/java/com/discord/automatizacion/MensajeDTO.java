@@ -1,4 +1,5 @@
 package com.discord.automatizacion;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -7,7 +8,7 @@ import java.time.LocalDateTime;
 public class MensajeDTO {
     @NotBlank
     private String texto;
-    @NotNull
+    @NotNull @JsonFormat(pattern = "dd/MM/yyyy:HH:mm")
     private LocalDateTime fecha;
 
     public MensajeDTO(){

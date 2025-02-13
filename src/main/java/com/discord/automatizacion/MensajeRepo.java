@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface MensajeRepo extends JpaRepository<Mensaje, Long> {
-    List <Mensaje> findByScheduledTimeBefore(LocalDateTime now);
+    List <Mensaje> findByFechaBefore(LocalDateTime now);
 }

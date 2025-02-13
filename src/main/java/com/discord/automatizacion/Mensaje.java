@@ -1,12 +1,10 @@
 package com.discord.automatizacion;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,9 +12,15 @@ public class Mensaje {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
     public String texto;
+    @JsonFormat(pattern = "dd/MM/yyyy:HH:mm")
     public LocalDateTime fecha;
 
     public Mensaje( String texto, LocalDateTime fecha) {
+        this.texto = texto;
+        this.fecha = fecha;
+    }
+
+    public Mensaje (){
     }
 
     public long getId() {

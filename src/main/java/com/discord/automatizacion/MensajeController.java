@@ -1,5 +1,6 @@
 package com.discord.automatizacion;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class MensajeController {
     }
 
     @PostMapping
-    public ResponseEntity<Mensaje> crearMensaje(@RequestBody MensajeDTO mensajeDTO){
+    public ResponseEntity<Mensaje> crearMensaje(@Valid @RequestBody MensajeDTO mensajeDTO){
         Mensaje mensajeGuardado = mensajeServicio.guardaMensaje(mensajeDTO);
         return ResponseEntity.ok(mensajeGuardado);
     }
