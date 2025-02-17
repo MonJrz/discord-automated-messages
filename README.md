@@ -68,3 +68,14 @@ Para enviar mensajes programados a tu servidor de Discord:
 2. Copia la URL del Webhook y agrégala en `application.properties`.
 3. ¡Listo! Tu bot enviará los mensajes automáticamente. 🚀
 
+## 🖥️ Panel Web para Visualizar Mensajes
+
+Se ha añadido un panel web simple utilizando **Thymeleaf** para visualizar los mensajes programados en la aplicación.
+
+### 📌 Acceso al Panel
+Una vez que la aplicación está en ejecución, puedes acceder al panel en:  
+[`http://localhost:8080/panel`](http://localhost:8080/panel)
+
+### 📄 Características
+- Muestra la lista de mensajes programados.
+- Se actualiza dinámicamente con los mensajes almacenados en la base de datos.
