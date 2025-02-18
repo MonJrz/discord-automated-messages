@@ -15,7 +15,7 @@ public class MensajeServicio {
 
     private final MensajeRepo mensajeRepo;
     private final WebClient webClient;
-    private final String DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1339294033276702771/AaY-PLGXTo83P4-aYUznPKw_QKJdZSXhgx0YQ0M0f2qMdyOoRLD2JLc_mh8BVx-z4-De"; //Insertar URL de tu WebHook
+    private final String DISCORD_WEBHOOK_URL = ""; //Insertar URL de tu WebHook
 
 
     @Autowired
