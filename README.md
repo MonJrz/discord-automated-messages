@@ -12,10 +12,9 @@ Este proyecto es un servicio backend desarrollado con **Java + Spring Boot + Pos
 
 ## 🛠️ Tecnologías Utilizadas
 - Java 17 + Spring Boot 3
-- PostgreSQL (o SQLite como alternativa)
-- SpringDoc OpenAPI (para documentación)
+- PostgreSQL
 - WebClient (para enviar mensajes a Discord)
-- Maven (gestión de dependencias)
+- Maven
 
 ---
 
